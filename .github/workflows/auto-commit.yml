@@ -1,9 +1,9 @@
 name: Auto-Commit Bot
 
 on:
+  workflow_dispatch:    # enables the “Run workflow” button
   schedule:
-    # runs once daily at 18:30 UTC → 23:30 IST
-    - cron: '30 18 * * *'
+    - cron: '30 18 * * *'  # once daily at 18:30 UTC
 
 jobs:
   commit:
