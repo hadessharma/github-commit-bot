@@ -1,0 +1,26 @@
+name: Auto-Commit Bot
+
+on:
+  schedule:
+    # runs once daily at 18:30 UTC → 23:30 IST
+    - cron: '30 18 * * *'
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install PyGithub
+
+      - name: Run commit bot
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python bot.py
