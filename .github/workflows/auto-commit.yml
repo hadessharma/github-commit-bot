@@ -1,9 +1,9 @@
 name: Auto-Commit Bot
 
 on:
-  workflow_dispatch:    # enables the “Run workflow” button
-  schedule:
-    - cron: '30 18 * * *'  # once daily at 18:30 UTC
+  workflow_dispatch: # enables the “Run workflow” button
+  # schedule:
+  #   - cron: '30 18 * * *'  # once daily at 18:30 UTC
 
 jobs:
   commit:
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install dependencies
         run: pip install PyGithub
